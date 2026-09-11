@@ -1,0 +1,38 @@
+.headerBlue {
+  background-color: white;
+}
+.container {
+  display: flex;
+  gap: 960px;
+  padding: 26px 120px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.navLinkActive {
+  color: #00aad4;
+}
+@media (max-width: 768px) {
+  .container {
+    gap: 24px;
+    justify-content: space-between;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 16px 20px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+}
+@media (min-width: 1441px) {
+  .container {
+    justify-content: center;
+  }
+}
