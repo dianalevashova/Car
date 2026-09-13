@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  border: 1px solid #00aad4;
+  border-radius: 200px;
+  padding: 16px 32px;
+  cursor: pointer;
+}
+.button:hover {
+  border: 1px solid black;
+}
