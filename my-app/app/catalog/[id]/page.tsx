@@ -5,6 +5,8 @@ import { useParams } from 'next/navigation';
 import css from './page.module.css';
 import Image from 'next/image';
 import FormBooking from '@/app/components/FormBooking/FormBooking';
+import { GrLocation } from 'react-icons/gr';
+import { describe } from 'node:test';
 
 export default function CarDetails() {
   const { id } = useParams<{ id: string }>();
@@ -26,7 +28,23 @@ export default function CarDetails() {
         />
         <FormBooking carId={car.id} />
       </div>
-      <div className={css.rightBlock}></div>
+      <div className={css.rightBlock}>
+        <div className={css.title}>
+          <h2 className={css.h}>
+            {car.brand} {car.model}, {car.year}
+          </h2>
+          <span className={css.titleSpan}> Article: {car.stockNumber} </span>
+        </div>
+
+        <div className={css.location}>
+          <GrLocation />
+          <span className={css.locationSpan}>
+            {car.location.city}, {car.location.country}
+          </span>
+        </div>
+        <p className={css.price}>${car.rentalPrice}</p>
+        <p className={css.desc}>{car.description}</p>
+      </div>
     </main>
   );
 }
