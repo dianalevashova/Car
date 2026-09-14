@@ -60,15 +60,34 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 
-\`\`\` my-app/ ├── app/ │ ├── page.tsx # Home page │ ├── layout.tsx # Root
-layout (fonts, providers, header) │ ├── globals.css │ ├── catalog/ │ │ ├──
-page.tsx # Catalog page │ │ ├── CatalogClient.tsx # Client component: filters +
-car list │ │ └── [id]/ │ │ └── page.tsx # Car details page │ ├── components/ │ │
-├── Header/ │ │ ├── Hero/ │ │ ├── Filters/ │ │ ├── CarItem/ │ │ ├── FormBooking/
-│ │ ├── LoadMoreBtn/ │ │ ├── Loader/ │ │ └── Btn/ │ └── providers/ │ └──
-QueryProvider.tsx # React Query provider ├── hooks/ # Custom React Query hooks
-(useCars, useCarsFilters, etc.) ├── services/ # API layer (axios instance,
-endpoints) ├── types/ # TypeScript types └── public/images/ \`\`\`
+## Project Structure
+
+## Project Structure
+
+- `app/`
+  - `page.tsx` — Home page
+  - `layout.tsx` — Root layout (fonts, providers, header)
+  - `globals.css`
+  - `catalog/`
+    - `page.tsx` — Catalog page
+    - `CatalogClient.tsx` — Client component: filters + car list
+    - `[id]/`
+      - `page.tsx` — Car details page
+  - `components/`
+    - `Header/`
+    - `Hero/`
+    - `Filters/`
+    - `CarItem/`
+    - `FormBooking/`
+    - `LoadMoreBtn/`
+    - `Loader/`
+    - `Btn/`
+  - `providers/`
+    - `QueryProvider.tsx` — React Query provider
+- `hooks/` — Custom React Query hooks (useCars, useCarsFilters, etc.)
+- `services/` — API layer (axios instance, endpoints)
+- `types/` — TypeScript types
+- `public/images/`
 
 ## API
 
