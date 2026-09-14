@@ -4,6 +4,7 @@ import 'modern-normalize/modern-normalize.css';
 import './globals.css';
 import QueryProvider from './providers/QueryProvider';
 import Header from './components/Header/Header';
+import css from './layout.module.css';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -22,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body>
         <QueryProvider>
           <Header />
-          {children}
+          <main className={css.container}>{children}</main>
         </QueryProvider>
       </body>
     </html>

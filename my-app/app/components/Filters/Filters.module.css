@@ -7,6 +7,7 @@
 .mileage {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 8px;
 }
 .priceLabel,
@@ -26,6 +27,10 @@
 }
 .optionNone {
   display: none;
+}
+.mileageInput {
+  display: flex;
+  justify-content: center;
 }
 .mileageInput {
   padding: 12px 24px;

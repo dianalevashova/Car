@@ -1,5 +1,6 @@
 .list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 32px;
   margin-bottom: 48px;
@@ -14,7 +15,7 @@
 }
 @media (max-width: 768px) {
   .main {
-    padding: 32px 92px;
+    padding: 32px 70px;
   }
   .layout {
     flex-direction: column;
@@ -30,7 +31,7 @@
 
 @media (max-width: 375px) {
   .main {
-    padding: 12px 48px;
+    padding: 12px 30px;
   }
   .layout {
     gap: 16px;
@@ -40,5 +41,10 @@
   }
   .content {
     margin-top: 15px;
+  }
+}
+@media (max-width: 320px) {
+  .main {
+    padding: 12px 18px;
   }
 }
