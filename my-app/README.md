@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RentalCar
+
+A car rental catalog web app built with Next.js. Users can browse available
+cars, filter them by brand, price, and mileage, view detailed specifications for
+each car, and submit a booking request.
+
+**Live demo:** [car-xi-six.vercel.app](https://car-xi-six.vercel.app)
+
+## Features
+
+- **Home page** — hero banner with a call-to-action leading to the catalog
+- **Catalog page** — browsable list of cars with:
+  - Filters: brand, price per hour, mileage range (from/to)
+  - "Load more" pagination (infinite loading, 4 cars per page)
+- **Car details page** — full specifications, rental conditions, features list,
+  and a booking request form
+- **Booking form** — sends name, email, and comment to the API for a specific
+  car
+- Responsive layout, optimized images via `next/image`
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [TypeScript](https://www.typescriptlang.org/)
+- CSS Modules
+- [TanStack React Query](https://tanstack.com/query) — `useQuery` /
+  `useInfiniteQuery` for data fetching and caching
+- [Axios](https://axios-http.com/) — API requests
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [Manrope](https://fonts.google.com/specimen/Manrope) font via
+  `next/font/google`
+- [modern-normalize](https://github.com/sindresorhus/modern-normalize) — CSS
+  reset
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+
+- npm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+\`\`\`bash git clone https://github.com/dianalevashova/Car.git cd Car/my-app npm
+install \`\`\`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Environment Variables
 
-## Learn More
+Create a `.env.local` file in the project root:
 
-To learn more about Next.js, take a look at the following resources:
+### Run the development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+\`\`\`bash npm run dev \`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+### Build for production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+\`\`\`bash npm run build npm run start \`\`\`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+\`\`\` my-app/ ├── app/ │ ├── page.tsx # Home page │ ├── layout.tsx # Root
+layout (fonts, providers, header) │ ├── globals.css │ ├── catalog/ │ │ ├──
+page.tsx # Catalog page │ │ ├── CatalogClient.tsx # Client component: filters +
+car list │ │ └── [id]/ │ │ └── page.tsx # Car details page │ ├── components/ │ │
+├── Header/ │ │ ├── Hero/ │ │ ├── Filters/ │ │ ├── CarItem/ │ │ ├── FormBooking/
+│ │ ├── LoadMoreBtn/ │ │ ├── Loader/ │ │ └── Btn/ │ └── providers/ │ └──
+QueryProvider.tsx # React Query provider ├── hooks/ # Custom React Query hooks
+(useCars, useCarsFilters, etc.) ├── services/ # API layer (axios instance,
+endpoints) ├── types/ # TypeScript types └── public/images/ \`\`\`
+
+## API
+
+The app consumes the [Car Rental API](https://car-rental-api.goit.study):
+
+| Endpoint                          | Description                                        |
+| --------------------------------- | -------------------------------------------------- |
+| `GET /cars`                       | List cars (supports filters & pagination)          |
+| `GET /cars/:id`                   | Get details for a single car                       |
+| `GET /cars/filters`               | Get available filter options (brands, price range) |
+| `POST /cars/:id/booking-requests` | Submit a booking request                           |
+
+## Deployment
+
+The app is deployed on [Vercel](https://vercel.com). Pushing to the `main`
+branch triggers an automatic production deployment.
+
+**Note:** since the Next.js app lives in the `my-app` subdirectory of the
+repository, the Vercel project's **Root Directory** setting must be set to
+`my-app`.
+
+## License
+
+This project was built for
